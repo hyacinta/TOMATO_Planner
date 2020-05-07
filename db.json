@@ -1,0 +1,61 @@
+{
+  "week": [
+    {
+      "id": 0,
+      "dayName": "일",
+      "date": ""
+    },
+    {
+      "id": 1,
+      "dayName": "월",
+      "date": ""
+    },
+    {
+      "id": 2,
+      "dayName": "화",
+      "date": ""
+    },
+    {
+      "id": 3,
+      "dayName": "수",
+      "date": ""
+    },
+    {
+      "id": 4,
+      "dayName": "목",
+      "date": ""
+    },
+    {
+      "id": 5,
+      "dayName": "금",
+      "date": ""
+    },
+    {
+      "id": 6,
+      "dayName": "토",
+      "date": ""
+    }
+  ],
+  "goals": [
+    {
+      "id": 0,
+      "title": "토마토 프로젝트",
+      "dDay": "2020-04-24",
+      "indexColor": "red"
+    }
+  ],
+  "todos": [
+    {
+      "id": 0,
+      "goalId": 0,
+      "title": "초기 기획",
+      "content": "토마토 플래너 프로젝트 초기 기획",
+      "important": false,
+      "date": "2020-04-16",
+      "day": 4,
+      "startTime": "18:00:00",
+      "goalTime": "03:00:00",
+      "runTime": "04:16:38"
+    }
+  ]
+}
