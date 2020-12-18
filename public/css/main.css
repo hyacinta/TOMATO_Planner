@@ -1,105 +1,166 @@
-.todayInformation {
-  padding: 32px 24px 24px;
-  color: #fff;
-  text-align: center;
-  background: linear-gradient(123.75deg, #FF551F 50%, #FF3543 115%); }
+@charset "UTF-8";
+/* common */
+html {
+  font-size: 10px; }
 
-.totalTime {
-  margin-top: 4px;
-  font-size: 4.8rem;
-  line-height: 1; }
-
-.goalPercent, .todayGoal, .todayPercent {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-
-.goalPercent {
-  height: 40px;
-  margin-top: 32px;
-  font-weight: 400;
-  border: 1px solid #fff;
-  border-radius: 20px; }
-
-.goalPercent h4 {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 300;
-  color: #fff; }
-
-.goalPercent p {
-  padding: 0 8px;
-  font-size: 20px; }
-
-.todayGoal, .todayPercent {
-  margin: 0 4px; }
-
-.categoryTit {
-  border-bottom: 2px solid #eee;
-  text-align: center; }
-
-.categoryTit .categorySelect {
-  width: auto;
-  height: 40px;
-  margin: 8px auto;
-  padding: 0 30px  0 10px;
-  font-size: 2rem;
-  border-bottom: none; }
-
-.categorySelect .dDay {
-  font-size: 1.6rem;
-  color: #707070; }
-
-.todoList li {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  width: 100%;
-  padding-top: 20px; }
-
-.btnStopWatch {
-  width: 48px;
-  height: 48px;
-  padding-top: 48px;
-  margin-left: 20px;
-  margin-right: 16px;
-  background-repeat: no-repeat;
-  background-size: 48px;
-  background-position: center;
+.a11yHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0);
+  clip-path: polygon(0, 0);
   overflow: hidden; }
 
-.timer .stopTimer .btnStopWatch.play {
-  background-image: url("../img/ico_start_main.png"); }
+::selection {
+  color: #FF551F;
+  background: #FFCCBC; }
 
-.timer .stopTimer .btnStopWatch {
-  background-image: url("../img/ico_stop_main.png"); }
+*:focus {
+  box-shadow: 0 0 3px rgba(255, 85, 31, 0.5); }
 
-.todoList .red .btnStopWatch {
-  background-image: url("../img/ico_start_red.png"); }
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
 
-/* .timer .stopTimer .btnStopWatch {background-image: url('../img/ico_stop_red.png');} */
-.todoList .yellow .btnStopWatch {
-  background-image: url("../img/ico_start_yellow.png"); }
+.container {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #f6f6f6; }
 
-/* .timer .stopTimer.yellow .btnStopWatch {background-image: url('../img/ico_stop_yellow.png');} */
-.todoList .green .btnStopWatch {
-  background-image: url("../img/ico_start_green.png"); }
+main {
+  padding-bottom: 64px; }
 
-/* .timer .stopTimer.green .btnStopWatch {background-image: url('../img/ico_stop_green.png');} */
-.todoList .blue .btnStopWatch {
-  background-image: url("../img/ico_start_blue.png"); }
+/* typography */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.6rem;
+  color: #707070;
+  letter-spacing: -0.025em;
+  line-height: 1.5; }
 
-/* .timer .stopTimer.blue .btnStopWatch {background-image: url('../img/ico_stop_blue.png');} */
-.todoList .purple .btnStopWatch {
-  background-image: url("../img/ico_start_purple.png"); }
+h1, h2, h3, h4, h5, h6, p {
+  color: inherit; }
 
-/* .timer .stopTimer.purple .btnStopWatch {background-image: url('../img/ico_stop_purple.png');} */
-.todoTitSet {
-  flex-grow: 1;
-  cursor: pointer; }
+.h1, .h2, .h3 {
+  font-weight: 100; }
 
-.todoTit .icoImp {
+.h4, .h5 {
+  font-weight: 400; }
+
+.h6, .subtitle1 {
+  font-weight: 500; }
+
+.h1 {
+  font-size: 8rem; }
+
+.h2 {
+  font-size: 6.4rem; }
+
+.h3 {
+  font-size: 5.2rem; }
+
+.h4 {
+  font-size: 4rem; }
+
+.h5 {
+  font-size: 3.2rem; }
+
+.h6 {
+  font-size: 2.4rem; }
+
+.subTitle1 {
+  font-size: 2rem; }
+
+.subTitle2 {
+  font-size: 1.6rem;
+  font-weight: 700; }
+
+.body1 {
+  font-size: 1.6rem; }
+
+.body2 {
+  font-size: 1.4rem; }
+
+.caption {
+  font-size: 1.2rem; }
+
+.overline {
+  font-size: 1rem; }
+
+/* mainTitle */
+.mainTitle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: #202020;
+  border-bottom: 2px solid #cecece;
+  background-color: #fff;
+  z-index: 100; }
+  .mainTitle span {
+    margin-left: 8px;
+    font-size: 1.4rem;
+    color: #707070; }
+
+/* button */
+button {
+  color: inherit; }
+
+.btnEdit, .btnDelete {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  padding-top: 32px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px; }
+
+.btnDelete {
+  background-image: url("../img/ico_delete.png"); }
+
+.btnEdit {
+  background-image: url("../img/ico_edit.png"); }
+
+/* progress */
+.progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  overflow: hidden; }
+
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  max-width: 100%;
+  height: 8px;
+  background-color: #FF551F;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  animation-name: progressBarStart;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both; }
+
+@keyframes progressBarStart {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); }
+  10% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
+
+/* 중요도 표시 아이콘 */
+.icoImp {
   display: inline-block;
   width: 24px;
   height: 24px;
@@ -111,6 +172,301 @@
   overflow: hidden;
   vertical-align: top; }
 
+.icoImp {
+  background-image: url("../img/ico_imp_off.png"); }
+
+.red .icoImp.impCheck {
+  background-image: url("../img/ico_imp_on_red.png"); }
+
+.yellow .icoImp.impCheck {
+  background-image: url("../img/ico_imp_on_yellow.png"); }
+
+.green .icoImp.impCheck {
+  background-image: url("../img/ico_imp_on_green.png"); }
+
+.blue .icoImp.impCheck {
+  background-image: url("../img/ico_imp_on_blue.png"); }
+
+.purple .icoImp.impCheck {
+  background-image: url("../img/ico_imp_on_purple.png"); }
+
+/* navigation */
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+  z-index: 100; }
+
+.btnAddTodo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 60px;
+  height: 40px;
+  padding-top: 40px;
+  margin: auto;
+  border-radius: 20px;
+  background: url("../img/ico_plus_white.png") no-repeat center;
+  background-size: 24px 24px;
+  background-color: #FF551F;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden; }
+
+.navLink {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0; }
+
+.navLink li:nth-child(2) {
+  margin-right: 36px; }
+
+.navLink li:nth-child(3) {
+  margin-left: 36px; }
+
+.navLink a {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 40px;
+  padding: 8px 0;
+  font-weight: 500;
+  color: #202020;
+  text-align: center; }
+
+.navLink .active a::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  margin: 4px auto 0;
+  background-color: #FF551F;
+  border-radius: 4px; }
+
+/* button
+.btn {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn.small {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+}
+.btn.xLarge {
+  padding: 0.75em 1.5em;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.btn.outline.white {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 1)
+}
+
+.btnClosed {
+  width: 24px;
+  height: 24px;
+  padding-top: 24px;
+  overflow: hidden;
+  background: url('../img/ico_closed.png') no-repeat center;
+  background-size: 24px 24px;
+}
+
+
+#goal, #statistics, #schedule {padding-top: 64px;}
+#todos, #statistics, .schedule {background-color: #fff;}
+
+
+button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
+input[type="text"], input[type="date"], input[type="number"], textarea {
+  width: 100%;
+  border-width: 0 0 1px 0;
+  border-color: #cecece;
+  border-style: solid;
+  color: #707070;
+}
+input[type="text"], input[type="number"], textarea {padding: 12px 10px 11px;}
+input[type="date"] {padding: 7px 0 7px 10px;}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  padding: 12px 0 11px 10px;
+  border-width: 0 0 1px 0;
+  border-color: #cecece;
+  border-style: solid;
+  border-radius: 0;
+  background: url('../img/ico_arrow.png') no-repeat right center #fff;
+  background-size: 24px 24px;
+}
+select::-ms-expand {display: none;}
+input, a, button, select {outline: 0;}
+*/
+/* font setting
+h2 {font-size: 2rem;}
+*/
+/* title
+.titMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  border-bottom: 2px solid #cecece;
+  background-color: #fff;
+  z-index: 100;
+}
+.titMenu .period {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 1.4rem;
+  color: #707070;
+}
+*/
+/* popup
+.popup {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 320px;
+  padding: 24px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  z-index: 200;
+}
+.popup h3 {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.popup .btnClosed {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+}
+.popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+  border-top: 1px solid #FF551F;
+}
+.popup .btnCancel {
+  left: 0;
+  color: #FF551F;
+  border-bottom-left-radius: 16px;
+}
+.popup .btnRegister, .popup .btnRemove {
+  right: 0;
+  color: #fff;
+  background-color: #FF551F;
+  border-bottom-right-radius: 16px;
+}
+.popup.active {display: block;}
+.popup.active + .dimd {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 150;
+  overflow: hidden;
+}
+
+.addTodos.popup {height: 666px;}
+.addGoal.popup, .editGoal.popup {height: 362px;}
+.timer.popup {height: 250px;}
+
+.addInput, .editInput {
+  display: flex;
+  flex-wrap: wrap;
+}
+.addInput li, .editInput li {margin-bottom: 16px;}
+.category {width: 100%;}
+.addInput .categorySelect, .editInput .categorySelect {
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #707070;
+  border-bottom: 1px solid #cecece;
+}
+.todoInput {width: 232px;}
+.impSelect {position: relative;}
+.impSelect  label {
+  width: 40px;
+  height: 40px;
+  padding-left: 40px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: center;
+  background-image: url('../img/ico_imp_off.png');
+  border-bottom: 1px solid #cecece;
+}
+.impSelect input[type="checkbox"]:checked + label {
+  background-image: url('../img/ico_imp_on.png');
+}
+.impSelect input[type="checkbox"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+.startDate, .startTime, .goalTime  {
+  width: 100%;
+  text-align: center;
+} 
+.startTime span {
+  padding-top: 10px;
+  padding-right: 5px;
+  border-bottom: 1px solid #cecece;
+}
+.contentInput {width: 100%;}
+.contentInput textarea {height: 80px;}
+.startTime, .goalTime {
+  display: flex;
+  flex-wrap: wrap;
+}
+.startDate label, .endDate label, .startTime label, .goalTime label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding-left: 10px;
+  text-align: left;
+}
+.startTime input {width: 106px;}
+.startTime select {
+  width: 130px;
+  text-align: right;
+  color: #707070;
+}
+.goalTime select {
+  padding-left: 10px;
+  color: #707070;
+}
+*/
+/* 
 button.btnImp {
   width: 40px;
   height: 40px;
@@ -118,122 +474,419 @@ button.btnImp {
   overflow: hidden;
   background-size: 24px;
   background-position: center;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+}
+.timer .stopTimer .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
+.timer .stopTimer .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
 
-.todoList .icoImp, .timer .icoImp, button.btnImp {
-  background-image: url("../img/ico_imp_off.png"); }
-
-.todoList .red .icoImp.impCheck, .timer .red .icoImp.icoCheck {
-  background-image: url("../img/ico_imp_on_red.png"); }
-
-.todoList .yellow .icoImp.impCheck, .timer .yellow .icoImp.icoCheck {
-  background-image: url("../img/ico_imp_on_yellow.png"); }
-
-.todoList .green .icoImp.impCheck, .timer .green .icoImp.icoCheck {
-  background-image: url("../img/ico_imp_on_green.png"); }
-
-.todoList .blue .icoImp.impCheck, .timer .blue .icoImp.icoCheck {
-  background-image: url("../img/ico_imp_on_blue.png"); }
-
-.todoList .purple .icoImp.impCheck, .timer .purple .icoImp.icoCheck {
-  background-image: url("../img/ico_imp_on_purple.png"); }
-
-.addTodos .impCheck, button.btnImp.impCheck {
-  background-image: url("../img/ico_imp_on.png"); }
-
+.addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
 button.btnImp.impCheck + label {
-  background-image: url("../img/ico_imp_on.png"); }
+  background-image: url('../img/ico_imp_on.png')
+}
+.impSelect label.btnImpLabel {background-image: none;}
 
-.impSelect label.btnImpLabel {
-  background-image: none; }
 
-.todoTit {
-  font-size: 1.6rem; }
-
-.todoSchedule {
-  font-size: 1.2rem;
-  color: #707070; }
-
-.simulationTime {
-  width: 88px;
-  margin-right: 20px;
-  font-size: 2rem;
-  text-align: right; }
-
-.todoContent {
-  width: 100%;
-  margin: 16px 20px 8px; }
-
-.todoList .todoContent, .todoList .btnDelete, .todoList .btnEdit {
-  display: none; }
-
-.todoList .ing .todoContent, .todoList .ing .btnDelete, .todoList .ing .btnEdit {
-  display: block; }
-
-.todoList .btnDelete {
-  margin-right: 20px; }
-
-.todoList .progress {
-  height: 4px;
-  margin-top: 24px; }
-
-.todoList .ing .progress {
-  margin-top: 8px; }
-
-.todoList .red .progressBar {
-  background-color: #FFA98E; }
-
-.todoList .yellow .progressBar {
-  background-color: #F4C753; }
-
-.todoList .green .progressBar {
-  background-color: #5fc47c; }
-
-.todoList .blue .progressBar {
-  background-color: #5CAFC1; }
-
-.todoList .purple .progressBar {
-  background-color: #A98DD7; }
-
+*/
 /* timer popup */
+/*
 .timer {
-  padding: 40px 24px; }
-
+  padding: 40px 24px;
+}
 .timer .btnClosed {
   top: 16px;
-  right: 16px; }
-
+  right: 16px;
+}
 .timer .todoTitSet {
-  margin-bottom: 16px; }
-
+  margin-bottom: 16px;
+}
 .timer .todoTit {
   display: inline-block;
   width: 100%;
   margin-bottom: 0;
   font-size: 2rem;
-  text-align: center; }
-
+  text-align: center;
+}
 .timer .todoSchedule {
   display: inline-block;
   width: 100%;
-  text-align: center; }
-
+  text-align: center;
+}
 .timer .stopTimer {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; }
-
+  width: 100%;
+}
 .timer .simulationTime {
   width: 190px;
   margin: 0;
   font-size: 4.8rem;
   text-align: center;
-  color: #FF551F; }
-
+  color: #FF551F;
+}
 .timer .btnStopWatch {
-  margin: 0 12px 0 0; }
-
+  margin: 0 12px 0 0;
+}
 .timer .btnRegister {
   width: 100%;
-  border-bottom-left-radius: 16px; }
+  border-bottom-left-radius: 16px;
+}
+*/
+/* font setting
+h2 {font-size: 2rem;}
+*/
+/* title
+.titMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  border-bottom: 2px solid #cecece;
+  background-color: #fff;
+  z-index: 100;
+}
+.titMenu .period {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 1.4rem;
+  color: #707070;
+}
+*/
+/* 할일 */
+main#today {
+  display: none;
+  background-color: #fff; }
+  main#today .information {
+    padding: 32px 24px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(180deg, #FF551F 50%, #FF3543 115%); }
+    main#today .information .totalTime {
+      margin-top: 4px;
+      line-height: 1; }
+    main#today .information .goalPercent, main#today .information .todayGoal, main#today .information .todayPercent {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    main#today .information .goalPercent {
+      display: inline-flex;
+      height: 40px;
+      margin-top: 32px;
+      padding: 0 12px;
+      font-weight: 400;
+      border: 1px solid #fff;
+      border-radius: 20px; }
+    main#today .information .goalPercent h4 {
+      display: inline-block;
+      font-weight: 300;
+      color: #fff; }
+    main#today .information .goalPercent p {
+      padding: 0 8px; }
+    main#today .information .todayGoal, main#today .information .todayPercent {
+      margin: 0 4px; }
+  main#today .category {
+    position: relative;
+    padding: 16px;
+    border-bottom: 2px solid #eee;
+    text-align: center; }
+    main#today .category .categoryTitle, main#today .category .categoryList {
+      font-size: 2rem;
+      color: #202020; }
+    main#today .category .categoryTitle {
+      padding-right: 32px;
+      background-image: url("../img/ico_arrow.png");
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: 24px; }
+    main#today .category .categoryList {
+      position: absolute;
+      display: none;
+      top: 8px;
+      left: 0;
+      right: 0;
+      width: 90%;
+      margin: 0 auto;
+      padding: 8px;
+      background-color: #fff;
+      border-radius: 8px;
+      border: 1px solid #cecece; }
+      main#today .category .categoryList button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin: 8px 0;
+        padding: 8px; }
+    main#today .category .dDay {
+      padding-left: 4px;
+      font-size: 1.6rem;
+      color: #707070; }
+  main#today .todoList li {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 16px; }
+    main#today .todoList li .btnStopWatch {
+      width: 48px;
+      height: 48px;
+      margin-right: 16px;
+      padding-top: 48px;
+      background-repeat: no-repeat;
+      background-size: 48px;
+      background-position: center;
+      overflow: hidden; }
+    main#today .todoList li.red .btnStopWatch {
+      background-image: url("../img/ico_start_red.png"); }
+    main#today .todoList li.yellow .btnStopWatch {
+      background-image: url("../img/ico_start_yellow.png"); }
+    main#today .todoList li.green .btnStopWatch {
+      background-image: url("../img/ico_start_green.png"); }
+    main#today .todoList li.blue .btnStopWatch {
+      background-image: url("../img/ico_start_blue.png"); }
+    main#today .todoList li.purple .btnStopWatch {
+      background-image: url("../img/ico_start_purple.png"); }
+    main#today .todoList li .todoTitSet {
+      flex-grow: 1;
+      cursor: pointer; }
+    main#today .todoList li .todoTit {
+      font-weight: 400;
+      color: #202020; }
+    main#today .todoList li .todoSchedule {
+      font-size: 1.2rem;
+      color: #707070; }
+    main#today .todoList li .simulationTime {
+      width: 88px;
+      font-size: 2rem;
+      text-align: right; }
+    main#today .todoList li.active .simulationTime {
+      color: #FF551F; }
+    main#today .todoList li .todoContent {
+      width: 100%;
+      margin-top: 16px; }
+    main#today .todoList li .todoContent, main#today .todoList li .btnDelete, main#today .todoList li .btnEdit {
+      display: none; }
+    main#today .todoList li.active .todoContent, main#today .todoList li.active .btnDelete, main#today .todoList li.active .btnEdit {
+      display: block; }
+    main#today .todoList li .progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px; }
+    main#today .todoList li .active .progress {
+      margin-top: 8px; }
+    main#today .todoList li .red .progressBar {
+      background-color: #FFA98E; }
+    main#today .todoList li .yellow .progressBar {
+      background-color: #F4C753; }
+    main#today .todoList li .green .progressBar {
+      background-color: #5fc47c; }
+    main#today .todoList li .blue .progressBar {
+      background-color: #5CAFC1; }
+    main#today .todoList li .purple .progressBar {
+      background-color: #A98DD7; }
+
+/* 목표 */
+main#goal {
+  display: none; }
+  main#goal .goalList {
+    background-color: #fff;
+    animation-name: bgColorChange;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+    animation-fill-mode: both; }
+    main#goal .goalList li {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      animation-name: indexInputLoad;
+      animation-duration: .2s;
+      animation-timing-function: linear;
+      animation-fill-mode: both; }
+      main#goal .goalList li:nth-child(1) {
+        animation-delay: .2s; }
+      main#goal .goalList li:nth-child(2) {
+        animation-delay: .25s; }
+      main#goal .goalList li:nth-child(3) {
+        animation-delay: .3s; }
+      main#goal .goalList li:nth-child(4) {
+        animation-delay: .35s; }
+      main#goal .goalList li:nth-child(5) {
+        animation-delay: .4s; }
+      main#goal .goalList li::before {
+        display: block;
+        content: '';
+        width: 4px;
+        height: 52px;
+        margin-right: 16px; }
+      main#goal .goalList li.red::before {
+        background-color: #FFA98E; }
+      main#goal .goalList li.yellow::before {
+        background-color: #F4C753; }
+      main#goal .goalList li.green::before {
+        background-color: #5FC37C; }
+      main#goal .goalList li.blue::before {
+        background-color: #5CAFC1; }
+      main#goal .goalList li.purple::before {
+        background-color: #A98DD7; }
+      main#goal .goalList li .goalTit {
+        flex-grow: 1; }
+  main#goal .btnAddGoal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+    margin: 40px auto;
+    padding-right: 16px;
+    font-size: 2rem;
+    color: #707070;
+    animation-name: btnDissolve;
+    animation-duration: .5s;
+    animation-delay: .5s;
+    animation-timing-function: linear;
+    animation-fill-mode: both; }
+    main#goal .btnAddGoal .icoPlusGray {
+      display: inline-block;
+      width: 48px;
+      height: 48px;
+      margin-right: 12px;
+      border-radius: 24px;
+      border: 1px solid #cecece;
+      background: url("../img/ico_plus_gray.png") no-repeat center;
+      background-size: 24px 24px;
+      background-color: #fff; }
+    main#goal .btnAddGoal span.caption {
+      display: block;
+      padding-top: 4px;
+      font-size: 12px; }
+
+@keyframes bgColorChange {
+  0% {
+    transform: translateY(-100%); }
+  70% {
+    opacity: 0; }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes indexInputLoad {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes btnDissolve {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* 통계 */
+main#statistics {
+  background-color: #fff; }
+  main#statistics .weeklyChallenge {
+    display: flex; }
+    main#statistics .weeklyChallenge > div {
+      flex-grow: 1;
+      text-align: center;
+      border-right: 1px solid #cecece; }
+      main#statistics .weeklyChallenge > div:last-child {
+        border-right: none; }
+      main#statistics .weeklyChallenge > div:nth-child(2) button.stamp {
+        animation-delay: 0.15s; }
+      main#statistics .weeklyChallenge > div:nth-child(3) button.stamp {
+        animation-delay: 0.3s; }
+      main#statistics .weeklyChallenge > div:nth-child(4) button.stamp {
+        animation-delay: 0.45s; }
+      main#statistics .weeklyChallenge > div:nth-child(5) button.stamp {
+        animation-delay: 0.6s; }
+      main#statistics .weeklyChallenge > div:nth-child(6) button.stamp {
+        animation-delay: 0.75s; }
+      main#statistics .weeklyChallenge > div:nth-child(7) button.stamp {
+        animation-delay: 0.9s; }
+    main#statistics .weeklyChallenge .perfect button.stamp {
+      background-image: url("../img/stamp_perfact_on.png"); }
+    main#statistics .weeklyChallenge .perfect.off button.stamp {
+      background-image: url("../img/stamp_perfact_off.png"); }
+    main#statistics .weeklyChallenge .seccess button.stamp {
+      background-image: url("../img/stamp_seccess_on.png"); }
+    main#statistics .weeklyChallenge .seccess.off button.stamp {
+      background-image: url("../img/stamp_seccess_off.png"); }
+    main#statistics .weeklyChallenge .fail button.stamp {
+      background-image: url("../img/stamp_fail_on.png"); }
+    main#statistics .weeklyChallenge .fail.off button.stamp {
+      background-image: url("../img/stamp_fail_off.png"); }
+    main#statistics .weeklyChallenge dt, main#statistics .weeklyChallenge dd {
+      color: #b0b0b0;
+      border-bottom: 1px solid #cecece; }
+    main#statistics .weeklyChallenge dt {
+      padding: 4px;
+      font-size: 1rem;
+      color: #707070;
+      background-color: #f6f6f6; }
+    main#statistics .weeklyChallenge dd {
+      position: relative;
+      height: 54px;
+      padding: 12px;
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: center;
+      overflow: hidden; }
+    main#statistics .weeklyChallenge .today dd {
+      color: #202020; }
+    main#statistics .weeklyChallenge button.stamp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 36px;
+      height: 36px;
+      margin-top: -18px;
+      margin-left: -18px;
+      padding-top: 36px;
+      background-size: 36px 36px;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow: hidden;
+      animation-name: stampLoad;
+      animation-duration: .3s;
+      animation-timing-function: linear;
+      animation-fill-mode: both; }
+  main#statistics .statsContent {
+    display: flex;
+    flex-wrap: wrap; }
+    main#statistics .statsContent .btnTab {
+      position: relative;
+      width: 50%;
+      padding: 16px;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border-bottom: 2px solid #cecece; }
+      main#statistics .statsContent .btnTab.active::after {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -2px;
+        display: block;
+        content: '';
+        width: 80px;
+        height: 4px;
+        margin: auto;
+        background: #FF551F; }
+
+@keyframes stampLoad {
+  0% {
+    opacity: 0;
+    transform: scale(1.2, 1.2); }
+  40% {
+    opacity: 1; }
+  90% {
+    transform: scale(0.95, 0.95); }
+  100% {
+    transform: scale(1, 1); } }
+
+/* 스케쥴 */

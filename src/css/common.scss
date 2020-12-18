@@ -1,4 +1,3 @@
-/* color */
 $primaryText: #202020;
 $secondaryText: #707070;
 $disableText: #b0b0b0;
@@ -19,20 +18,20 @@ $border: #cecece;
 $warning: #ff4343;
 $success: #3864ff;
 
-$index1Border: #F4C753;
-$index1Bg: #FFEEC1;
+$yellowDeep: #F4C753;
+$yellowLight: #FFEEC1;
 
-$index2Border: #FFA98E;
-$index2Bg: #FFDDD2;
+$redDeep: #FFA98E;
+$redLight: #FFDDD2;
 
-$index3Border: #5FC37C;
-$index3Bg: #C6F2D2;
+$greenDeep: #5FC37C;
+$greenLight: #C6F2D2;
 
-$index4Border: #5CAFC1;
-$index4Bg: #BDEAF4;
+$blueDeep: #5CAFC1;
+$blueLight: #BDEAF4;
 
-$index5Border: #A98DD7;
-$index5Bg: #E3D3FD;
+$purpleDeep: #A98DD7;
+$purpleLight: #E3D3FD;
 
 /* common */
 
@@ -57,9 +56,12 @@ html {font-size: 10px;}
   clear: both;
 }
 .container {
+  position: relative;
+  width: 100vw;
   min-height: 100vh;
   background-color: $bgStep1;
 }
+main {padding-bottom: 64px;}
 
 /* typography */
 body {
@@ -69,7 +71,7 @@ body {
   letter-spacing: -0.025em;
   line-height: 1.5;
 }
-h1, h2, h3, h4, h5, h6 {color: $primaryText}
+h1, h2, h3, h4, h5, h6, p {color: inherit}
 .h1, .h2, .h3 {font-weight: 100;}
 .h4, .h5 {font-weight: 400;}
 .h6, .subtitle1 {font-weight: 500;}
@@ -89,6 +91,158 @@ h1, h2, h3, h4, h5, h6 {color: $primaryText}
 
 .caption {font-size: 1.2rem;}
 .overline {font-size: 1rem;}
+
+/* mainTitle */
+.mainTitle {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 16px;
+  font-size: 2rem;
+  font-weight: 400;
+  color: $primaryText;
+  border-bottom: 2px solid $border;
+  background-color: $bgStep0;
+  z-index: 100;
+  span {
+    margin-left: 8px;
+    font-size: 1.4rem;
+    color: $secondaryText;
+  }
+}
+
+/* button */
+button {color: inherit;}
+
+.btnEdit, .btnDelete {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  padding-top: 32px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+}
+.btnDelete {background-image: url('../img/ico_delete.png');}
+.btnEdit {background-image: url('../img/ico_edit.png');}
+
+
+
+/* progress */
+.progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: $dividers;
+  overflow: hidden;
+}
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  max-width: 100%;
+  height: 8px;
+  background-color: #FF551F;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  animation-name: progressBarStart;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes progressBarStart {
+  0% {
+      opacity: 0;
+      transform: translateX(-100px);
+  }
+  10% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+/* 중요도 표시 아이콘 */
+
+.icoImp {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding-top: 24px;
+  margin-right: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px 24px;
+  overflow: hidden;
+  vertical-align: top;
+}
+.icoImp {background-image: url('../img/ico_imp_off.png');}
+.red .icoImp.impCheck {background-image: url('../img/ico_imp_on_red.png');}
+.yellow .icoImp.impCheck {background-image: url('../img/ico_imp_on_yellow.png');}
+.green .icoImp.impCheck {background-image: url('../img/ico_imp_on_green.png');}
+.blue .icoImp.impCheck {background-image: url('../img/ico_imp_on_blue.png');}
+.purple .icoImp.impCheck {background-image: url('../img/ico_imp_on_purple.png');}
+
+/* navigation */
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $bgStep0;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+.btnAddTodo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width:60px;
+  height: 40px;
+  padding-top: 40px;
+  margin: auto;
+  border-radius: 20px;
+  background: url('../img/ico_plus_white.png') no-repeat center;
+  background-size: 24px 24px;
+  background-color: $main;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+  overflow: hidden;
+}
+.navLink {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+}
+.navLink li:nth-child(2) {margin-right: 36px;}
+.navLink li:nth-child(3) {margin-left: 36px;}
+.navLink a {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 40px;
+  padding: 8px 0;
+  font-weight: 500;
+  color: $primaryText;
+  text-align: center;
+}
+.navLink .active a::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 100%;
+  height: 2px;
+  margin: 4px auto 0;
+  background-color: $main;
+  border-radius: 4px;
+}
 
 
 /* button
@@ -112,21 +266,6 @@ h1, h2, h3, h4, h5, h6 {color: $primaryText}
   border-color: rgba(255, 255, 255, 1)
 }
 
-
-/* etc 
-
-.btnEdit, .btnDelete {
-  width: 32px;
-  height: 32px;
-  margin: 4px;
-  padding-top: 32px;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 24px;
-}
-.btnDelete {background-image: url('../img/ico_delete.png');}
-.btnEdit {background-image: url('../img/ico_edit.png');}
 .btnClosed {
   width: 24px;
   height: 24px;
@@ -136,46 +275,9 @@ h1, h2, h3, h4, h5, h6 {color: $primaryText}
   background-size: 24px 24px;
 }
 
-.progress {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  background-color: #eee;
-  overflow: hidden;
-}
-.progressBar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  max-width: 100%;
-  height: 8px;
-  border-radius: 0 4px 4px 0;
-  background-color: #FF551F;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
-  animation-name: progressBarStart;
-  animation-duration: .5s;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
-}
-@keyframes progressBarStart {
-  0% {
-      opacity: 0;
-      transform: translateX(-100px);
-  }
-  10% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(0);
-  }
-}
+
 #goal, #statistics, #schedule {padding-top: 64px;}
 #todos, #statistics, .schedule {background-color: #fff;}
-
-
-
 
 
 button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
@@ -229,63 +331,7 @@ h2 {font-size: 2rem;}
   color: #707070;
 }
 */
-/* bottom nav
-nav {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, .15);
-  z-index: 100;
-}
-.btnAddTodo {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width:60px;
-  height: 40px;
-  padding-top: 40px;
-  margin: auto;
-  border-radius: 20px;
-  background: url('../img/ico_plus_white.png') no-repeat center;
-  background-size: 24px 24px;
-  background-color: #FF551F;
-  box-shadow: 0 0 12px 1px rgba(0,0,0,0.2);
-  overflow: hidden;
-}
-.navLink {
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0 16px;
-}
-.navLink li:nth-child(2) {margin-right: 36px;}
-.navLink li:nth-child(3) {margin-left: 36px;}
-.navLink a {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 40px;
-  padding: 8px 0;
-  font-size: 1.6rem;
-  font-weight: 500;
-  color: #202020;
-  text-align: center;
-}
-.navLink .active a::after {
-  position: absolute;
-  left: 0;
-  right: 0;
-  display: block;
-  content: '';
-  width: 6px;
-  height: 6px;
-  margin: 4px auto 0;
-  background-color: #FF551F;
-  border-radius: 4px;
-}
-
+/* popup
 .popup {
   position: fixed;
   display: none;
@@ -417,3 +463,106 @@ nav {
   color: #707070;
 }
 */
+
+
+
+
+/* 
+button.btnImp {
+  width: 40px;
+  height: 40px;
+  padding-top: 40px;
+  overflow: hidden;
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.timer .stopTimer .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
+.timer .stopTimer .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
+
+.addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
+button.btnImp.impCheck + label {
+  background-image: url('../img/ico_imp_on.png')
+}
+.impSelect label.btnImpLabel {background-image: none;}
+
+
+*/
+/* timer popup */
+
+/*
+.timer {
+  padding: 40px 24px;
+}
+.timer .btnClosed {
+  top: 16px;
+  right: 16px;
+}
+.timer .todoTitSet {
+  margin-bottom: 16px;
+}
+.timer .todoTit {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+.timer .todoSchedule {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.timer .stopTimer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.timer .simulationTime {
+  width: 190px;
+  margin: 0;
+  font-size: 4.8rem;
+  text-align: center;
+  color: #FF551F;
+}
+.timer .btnStopWatch {
+  margin: 0 12px 0 0;
+}
+.timer .btnRegister {
+  width: 100%;
+  border-bottom-left-radius: 16px;
+}
+*/
+
+
+
+/* font setting
+h2 {font-size: 2rem;}
+*/
+/* title
+.titMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  border-bottom: 2px solid #cecece;
+  background-color: #fff;
+  z-index: 100;
+}
+.titMenu .period {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 1.4rem;
+  color: #707070;
+}
+*/
+
+
+
+
+
+
+
+
+
