@@ -2,7 +2,8 @@
 
 /* 할일 */
 main#today {
-  display: none;
+  // display: none;
+  padding-top: 0;
   .information {
     padding: 32px 24px;
     color: $inverseText;
@@ -505,6 +506,7 @@ main#statistics {
 
 /* 스케쥴 */
 main#schedule {
+  display: none;
   .hour {display: flex;}
   .timeTit {
     width: 36px;

@@ -58,7 +58,7 @@ html {font-size: 10px;}
 .container {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background-color: $bgStep0;
 }
 main {padding: 64px 0;}
@@ -128,7 +128,6 @@ button {color: inherit;}
 }
 .btnDelete {background-image: url('../img/ico_delete.png');}
 .btnEdit {background-image: url('../img/ico_edit.png');}
-
 
 
 /* progress */
@@ -246,6 +245,128 @@ nav {
 }
 
 
+/* popup */
+.popup {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 320px;
+  padding: 24px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  z-index: 200;
+  h3 {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .btnClosed {
+    position: absolute;
+    top: 28px;
+    right: 24px;
+  }
+  .btnCancel, .btnRegister, .btnRemove {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    padding: 16px;
+    font-size: 20px;
+    text-align: center;
+    border-top: 1px solid #FF551F;
+  }
+  .btnCancel {
+    left: 0;
+    color: #FF551F;
+    border-bottom-left-radius: 16px;
+  }
+  .btnRegister, .btnRemove {
+    right: 0;
+    color: #fff;
+    background-color: #FF551F;
+    border-bottom-right-radius: 16px;
+  }
+  &.active {display: block;}
+  &.active + .dimd {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .8);
+    backdrop-filter: blur(8px);
+    z-index: 150;
+    overflow: hidden;
+  }
+  /* timer popup */
+  &.timer {
+    height: 248px;
+    padding: 32px 24px 40px;
+    .btnClosed {
+      top: 16px;
+      right: 16px;
+    }
+    .todoTitSet {
+      margin-bottom: 16px;
+    }
+    .todoTit {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 0rem;
+      font-size: 2.4rem;
+      text-align: center;
+      color: $primaryText;
+    }
+    .todoSchedule {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .simulationTime {
+      width: 190px;
+      margin: 0;
+      font-size: 4.8rem;
+      text-align: center;
+      color: #FF551F;
+    }
+    .btnStopWatch {
+      margin: 0 12px 0 0;
+    }
+    .btnRegister {
+      width: 100%;
+      border-bottom-left-radius: 16px;
+    }
+    .stopTimer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      // background-color: red;
+      .btnStopWatch {
+        width: 48px;
+        height: 48px;
+        padding-top: 48px;
+        margin: 4px 12px 0 0;
+        background-repeat: no-repeat;
+        background-size: 48px;
+        background-position: center;
+        overflow: hidden;
+      }
+      .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
+      .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
+    }
+    
+  }
+  &.addTodos {height: 666px;}
+  &.addGoal, &.editGoal {height: 362px;}
+}
+
+
 /* button
 .btn {
   display: inline-flex;
@@ -275,10 +396,6 @@ nav {
   background: url('../img/ico_closed.png') no-repeat center;
   background-size: 24px 24px;
 }
-
-
-#goal, #statistics, #schedule {padding-top: 64px;}
-#todos, #statistics, .schedule {background-color: #fff;}
 
 
 button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
@@ -333,66 +450,11 @@ h2 {font-size: 2rem;}
 }
 */
 /* popup
-.popup {
-  position: fixed;
-  display: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 320px;
-  padding: 24px;
-  margin: auto;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-  z-index: 200;
-}
-.popup h3 {
-  margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 400;
-}
-.popup .btnClosed {
-  position: absolute;
-  top: 28px;
-  right: 24px;
-}
-.popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
-  position: absolute;
-  bottom: 0;
-  width: 50%;
-  padding: 16px;
-  font-size: 20px;
-  text-align: center;
-  border-top: 1px solid #FF551F;
-}
-.popup .btnCancel {
-  left: 0;
-  color: #FF551F;
-  border-bottom-left-radius: 16px;
-}
-.popup .btnRegister, .popup .btnRemove {
-  right: 0;
-  color: #fff;
-  background-color: #FF551F;
-  border-bottom-right-radius: 16px;
-}
-.popup.active {display: block;}
-.popup.active + .dimd {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, .6);
-  z-index: 150;
-  overflow: hidden;
-}
 
-.addTodos.popup {height: 666px;}
-.addGoal.popup, .editGoal.popup {height: 362px;}
-.timer.popup {height: 250px;}
+
+
+
+
 
 .addInput, .editInput {
   display: flex;
@@ -478,8 +540,7 @@ button.btnImp {
   background-position: center;
   background-repeat: no-repeat;
 }
-.timer .stopTimer .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
-.timer .stopTimer .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
+
 
 .addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
 button.btnImp.impCheck + label {
@@ -489,58 +550,10 @@ button.btnImp.impCheck + label {
 
 
 */
-/* timer popup */
-
-/*
-.timer {
-  padding: 40px 24px;
-}
-.timer .btnClosed {
-  top: 16px;
-  right: 16px;
-}
-.timer .todoTitSet {
-  margin-bottom: 16px;
-}
-.timer .todoTit {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 0;
-  font-size: 2rem;
-  text-align: center;
-}
-.timer .todoSchedule {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
-.timer .stopTimer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.timer .simulationTime {
-  width: 190px;
-  margin: 0;
-  font-size: 4.8rem;
-  text-align: center;
-  color: #FF551F;
-}
-.timer .btnStopWatch {
-  margin: 0 12px 0 0;
-}
-.timer .btnRegister {
-  width: 100%;
-  border-bottom-left-radius: 16px;
-}
-*/
 
 
 
-/* font setting
-h2 {font-size: 2rem;}
-*/
+
 /* title
 .titMenu {
   position: fixed;
@@ -558,12 +571,3 @@ h2 {font-size: 2rem;}
   color: #707070;
 }
 */
-
-
-
-
-
-
-
-
-

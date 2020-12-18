@@ -26,7 +26,7 @@ html {
 .container {
   position: relative;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #fff; }
 
 main {
@@ -250,6 +250,112 @@ nav {
   background-color: #FF551F;
   border-radius: 4px; }
 
+/* popup */
+.popup {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 320px;
+  padding: 24px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 200;
+  /* timer popup */ }
+  .popup h3 {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: 400; }
+  .popup .btnClosed {
+    position: absolute;
+    top: 28px;
+    right: 24px; }
+  .popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    padding: 16px;
+    font-size: 20px;
+    text-align: center;
+    border-top: 1px solid #FF551F; }
+  .popup .btnCancel {
+    left: 0;
+    color: #FF551F;
+    border-bottom-left-radius: 16px; }
+  .popup .btnRegister, .popup .btnRemove {
+    right: 0;
+    color: #fff;
+    background-color: #FF551F;
+    border-bottom-right-radius: 16px; }
+  .popup.active {
+    display: block; }
+  .popup.active + .dimd {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 150;
+    overflow: hidden; }
+  .popup.timer {
+    height: 248px;
+    padding: 32px 24px 40px; }
+    .popup.timer .btnClosed {
+      top: 16px;
+      right: 16px; }
+    .popup.timer .todoTitSet {
+      margin-bottom: 16px; }
+    .popup.timer .todoTit {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 0rem;
+      font-size: 2.4rem;
+      text-align: center;
+      color: #202020; }
+    .popup.timer .todoSchedule {
+      display: inline-block;
+      width: 100%;
+      text-align: center; }
+    .popup.timer .simulationTime {
+      width: 190px;
+      margin: 0;
+      font-size: 4.8rem;
+      text-align: center;
+      color: #FF551F; }
+    .popup.timer .btnStopWatch {
+      margin: 0 12px 0 0; }
+    .popup.timer .btnRegister {
+      width: 100%;
+      border-bottom-left-radius: 16px; }
+    .popup.timer .stopTimer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%; }
+      .popup.timer .stopTimer .btnStopWatch {
+        width: 48px;
+        height: 48px;
+        padding-top: 48px;
+        margin: 4px 12px 0 0;
+        background-repeat: no-repeat;
+        background-size: 48px;
+        background-position: center;
+        overflow: hidden; }
+      .popup.timer .stopTimer .btnStopWatch.play {
+        background-image: url("../img/ico_start_main.png"); }
+      .popup.timer .stopTimer .btnStopWatch {
+        background-image: url("../img/ico_stop_main.png"); }
+  .popup.addTodos {
+    height: 666px; }
+  .popup.addGoal, .popup.editGoal {
+    height: 362px; }
+
 /* button
 .btn {
   display: inline-flex;
@@ -279,10 +385,6 @@ nav {
   background: url('../img/ico_closed.png') no-repeat center;
   background-size: 24px 24px;
 }
-
-
-#goal, #statistics, #schedule {padding-top: 64px;}
-#todos, #statistics, .schedule {background-color: #fff;}
 
 
 button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
@@ -336,66 +438,11 @@ h2 {font-size: 2rem;}
 }
 */
 /* popup
-.popup {
-  position: fixed;
-  display: none;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 320px;
-  padding: 24px;
-  margin: auto;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-  z-index: 200;
-}
-.popup h3 {
-  margin-bottom: 40px;
-  font-size: 20px;
-  font-weight: 400;
-}
-.popup .btnClosed {
-  position: absolute;
-  top: 28px;
-  right: 24px;
-}
-.popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
-  position: absolute;
-  bottom: 0;
-  width: 50%;
-  padding: 16px;
-  font-size: 20px;
-  text-align: center;
-  border-top: 1px solid #FF551F;
-}
-.popup .btnCancel {
-  left: 0;
-  color: #FF551F;
-  border-bottom-left-radius: 16px;
-}
-.popup .btnRegister, .popup .btnRemove {
-  right: 0;
-  color: #fff;
-  background-color: #FF551F;
-  border-bottom-right-radius: 16px;
-}
-.popup.active {display: block;}
-.popup.active + .dimd {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, .6);
-  z-index: 150;
-  overflow: hidden;
-}
 
-.addTodos.popup {height: 666px;}
-.addGoal.popup, .editGoal.popup {height: 362px;}
-.timer.popup {height: 250px;}
+
+
+
+
 
 .addInput, .editInput {
   display: flex;
@@ -477,8 +524,7 @@ button.btnImp {
   background-position: center;
   background-repeat: no-repeat;
 }
-.timer .stopTimer .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
-.timer .stopTimer .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
+
 
 .addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
 button.btnImp.impCheck + label {
@@ -487,54 +533,6 @@ button.btnImp.impCheck + label {
 .impSelect label.btnImpLabel {background-image: none;}
 
 
-*/
-/* timer popup */
-/*
-.timer {
-  padding: 40px 24px;
-}
-.timer .btnClosed {
-  top: 16px;
-  right: 16px;
-}
-.timer .todoTitSet {
-  margin-bottom: 16px;
-}
-.timer .todoTit {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 0;
-  font-size: 2rem;
-  text-align: center;
-}
-.timer .todoSchedule {
-  display: inline-block;
-  width: 100%;
-  text-align: center;
-}
-.timer .stopTimer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
-.timer .simulationTime {
-  width: 190px;
-  margin: 0;
-  font-size: 4.8rem;
-  text-align: center;
-  color: #FF551F;
-}
-.timer .btnStopWatch {
-  margin: 0 12px 0 0;
-}
-.timer .btnRegister {
-  width: 100%;
-  border-bottom-left-radius: 16px;
-}
-*/
-/* font setting
-h2 {font-size: 2rem;}
 */
 /* title
 .titMenu {
@@ -555,7 +553,7 @@ h2 {font-size: 2rem;}
 */
 /* 할일 */
 main#today {
-  display: none; }
+  padding-top: 0; }
   main#today .information {
     padding: 32px 24px;
     color: #fff;
@@ -1032,86 +1030,80 @@ main#statistics {
     transform: translateY(0); } }
 
 /* 스케쥴 */
-main#schedule .hour {
-  display: flex; }
-
-main#schedule .timeTit {
-  width: 36px;
-  padding: 0 4px;
-  font-size: 1rem;
-  text-align: right;
-  color: #202020;
-  border-right: 1px solid #cecece;
-  border-bottom: 1px solid #cecece;
-  background-color: #f6f6f6; }
-
-main#schedule .timeTit span {
-  display: block; }
-
-main#schedule .time {
-  flex-grow: 1; }
-
-main#schedule .halfMinute {
-  position: relative;
-  height: 30px;
-  border-bottom: 1px solid #cecece;
-  background-color: #fff; }
-
-main#schedule .todo {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 31px;
-  margin-top: -1px;
-  padding: 0 8px;
-  font-size: 1.4rem;
-  z-index: 10;
-  animation-name: todoRanding;
-  animation-duration: .4s;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
-  transform-origin: left center; }
-  main#schedule .todo.red {
-    background-color: #ffddd2;
-    border-top: 1px solid #ffa98e;
-    border-bottom: 1px solid #ffa98e; }
-  main#schedule .todo.yellow {
-    background-color: #ffeec1;
-    border-top: 1px solid #f4c753;
-    border-bottom: 1px solid #f4c753; }
-  main#schedule .todo.green {
-    background-color: #c6f2d2;
-    border-top: 1px solid #5fc47c;
-    border-bottom: 1px solid #5fc47c; }
-  main#schedule .todo.blue {
-    background-color: #bdeaf4;
-    border-top: 1px solid #5cafc1;
-    border-bottom: 1px solid #5cafc1; }
-  main#schedule .todo.purple {
-    background-color: #e3d3fd;
-    border-top: 1px solid #a98dd7;
-    border-bottom: 1px solid #a98dd7; }
-  main#schedule .todo h4 {
-    margin-right: 8px;
-    color: #202020; }
-  main#schedule .todo p {
-    font-size: 1.2rem; }
-
-main#schedule .shec {
-  height: 160px;
-  width: 300px;
-  padding: 5px 15px;
-  font-size: 1.4em;
-  text-align: center; }
-
-main#schedule .shec span {
-  display: block;
-  text-align: center;
-  padding: 23px; }
-
-main#schedule .shec span.editShec {
-  border-bottom: 1px solid #cecece; }
+main#schedule {
+  display: none; }
+  main#schedule .hour {
+    display: flex; }
+  main#schedule .timeTit {
+    width: 36px;
+    padding: 0 4px;
+    font-size: 1rem;
+    text-align: right;
+    color: #202020;
+    border-right: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    background-color: #f6f6f6; }
+  main#schedule .timeTit span {
+    display: block; }
+  main#schedule .time {
+    flex-grow: 1; }
+  main#schedule .halfMinute {
+    position: relative;
+    height: 30px;
+    border-bottom: 1px solid #cecece;
+    background-color: #fff; }
+  main#schedule .todo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 31px;
+    margin-top: -1px;
+    padding: 0 8px;
+    font-size: 1.4rem;
+    z-index: 10;
+    animation-name: todoRanding;
+    animation-duration: .4s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    transform-origin: left center; }
+    main#schedule .todo.red {
+      background-color: #ffddd2;
+      border-top: 1px solid #ffa98e;
+      border-bottom: 1px solid #ffa98e; }
+    main#schedule .todo.yellow {
+      background-color: #ffeec1;
+      border-top: 1px solid #f4c753;
+      border-bottom: 1px solid #f4c753; }
+    main#schedule .todo.green {
+      background-color: #c6f2d2;
+      border-top: 1px solid #5fc47c;
+      border-bottom: 1px solid #5fc47c; }
+    main#schedule .todo.blue {
+      background-color: #bdeaf4;
+      border-top: 1px solid #5cafc1;
+      border-bottom: 1px solid #5cafc1; }
+    main#schedule .todo.purple {
+      background-color: #e3d3fd;
+      border-top: 1px solid #a98dd7;
+      border-bottom: 1px solid #a98dd7; }
+    main#schedule .todo h4 {
+      margin-right: 8px;
+      color: #202020; }
+    main#schedule .todo p {
+      font-size: 1.2rem; }
+  main#schedule .shec {
+    height: 160px;
+    width: 300px;
+    padding: 5px 15px;
+    font-size: 1.4em;
+    text-align: center; }
+  main#schedule .shec span {
+    display: block;
+    text-align: center;
+    padding: 23px; }
+  main#schedule .shec span.editShec {
+    border-bottom: 1px solid #cecece; }
 
 @keyframes todoRanding {
   0% {
