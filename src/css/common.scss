@@ -59,9 +59,9 @@ html {font-size: 10px;}
   position: relative;
   width: 100vw;
   min-height: 100vh;
-  background-color: $bgStep1;
+  background-color: $bgStep0;
 }
-main {padding-bottom: 64px;}
+main {padding: 64px 0;}
 
 /* typography */
 body {
@@ -96,7 +96,8 @@ h1, h2, h3, h4, h5, h6, p {color: inherit}
 .mainTitle {
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
   width: 100%;
   padding: 16px;
   font-size: 2rem;

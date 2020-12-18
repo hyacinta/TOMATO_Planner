@@ -3,7 +3,6 @@
 /* 할일 */
 main#today {
   display: none;
-  background-color: $bgStep0;
   .information {
     padding: 32px 24px;
     color: $inverseText;
@@ -146,6 +145,7 @@ main#today {
 /* 목표 */
 main#goal {
   display: none;
+  background-color: $bgStep1;
   .goalList {
     background-color: #fff;
     animation-name: bgColorChange;
@@ -243,9 +243,9 @@ main#goal {
   }
 }
 
-/* 통계 */
+/* 통계  */
 main#statistics {
-  background-color: $bgStep0;
+  display: none;
   .weeklyChallenge {
     display: flex;
     & > div {
@@ -306,6 +306,7 @@ main#statistics {
     }
   }
   .statsContent {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     & .btnTab {
@@ -328,6 +329,135 @@ main#statistics {
         background: $main;
       }
     }
+    & .daily, & .weekly {
+      width: 100%;
+      background-color: $bgStep0;
+    }
+    .active .statsData {display: block;}
+  }
+  .statsData {
+    display: none;
+    padding: 24px 16px;
+    .dailyDate {
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #202020;
+    }
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 24px;
+      h4 {color: $primaryText;}
+      h4 > span {
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: $secondaryText;
+      }
+      > p {
+        flex-grow: 1;
+        text-align: right;
+      }
+    }
+    & .total p {font-size: 2rem;}
+    & .achievement .progress {
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+    .category .graph {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: 152px;
+      margin-top: 16px;
+      padding-top: 10px;
+      border-bottom: 2px solid #cecece;
+    }
+    .category li {
+      position: relative;
+      width: 20%;
+      height: 100%;
+    }
+    .category label {
+      position: absolute;
+      bottom: -32px;
+      width: 100%;
+      height: 24px;
+      text-align: center;
+      color: #202020;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      word-wrap:break-word;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:1;
+      display:-webkit-box;
+      z-index: 10;
+    }
+    .category .bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      height: 140px;
+      max-height: 100%;
+      margin: auto;
+      border-radius: 4px 4px 0 0;
+      border-width: 1px 1px 0 1px;
+      border-style: solid;
+      border-bottom: none;
+      animation-name: graphBarStart;
+      animation-duration: .5s;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+    .red .bar {
+      background-color: #ffddd2;
+      border-color: #ffa98e;
+      animation-delay: .1s;
+    }
+    .yellow .bar {
+      background-color: #ffeec1;
+      border-color: #f4c753;
+      animation-delay: .15s;
+    }
+    .blue .bar {
+      background-color: #bdeaf4;
+      border-color: #5cafc1;
+      animation-delay: .2s;
+    }
+    .green .bar {
+      background-color: #c6f2d2;
+      border-color: #5fc47c;
+      animation-delay: .25s;
+    }
+    .purple .bar {
+      background-color: #e3d3fd;
+      border-color: #a98dd7;
+      animation-delay: .3s;
+    }
+    .bar .percent {
+      position: absolute;
+      top: -16px;
+      left: -4px;
+      right: -4px;
+      display: block;
+      content: '100%';
+      width: 26px;
+      font-size: 10px;
+      text-align: center;
+      animation-name: percentDissolve;
+      animation-duration: .4s;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+    }
+    .category li.red .bar .percent {animation-delay: .4s;}
+    .category li.yellow .bar .percent {animation-delay: .45s;}
+    .category li.blue .bar .percent {animation-delay: .5s;}
+    .category li.green .bar .percent {animation-delay: .55s;}
+    .category li.purple .bar .percent {animation-delay: .6s;}
   }
 }
 
@@ -346,5 +476,122 @@ main#statistics {
     transform: scale(1, 1)
   }
 }
+@keyframes graphBarStart {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes percentDissolve {
+  0% {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  80% {
+      transform: translateY(-5px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
 
 /* 스케쥴 */
+main#schedule {
+  .hour {display: flex;}
+  .timeTit {
+    width: 36px;
+    padding: 0 4px;
+    font-size: 1rem;
+    text-align: right;
+    color: #202020;
+    border-right: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    background-color: #f6f6f6;
+  }
+  .timeTit span {display: block;}
+  .time {flex-grow: 1;}
+  .halfMinute {
+    position: relative;
+    height: 30px;
+    border-bottom: 1px solid #cecece;
+    background-color: #fff;
+  }
+  .todo {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 31px;
+    margin-top: -1px;
+    padding: 0 8px;
+    font-size: 1.4rem;
+    z-index: 10;
+    animation-name: todoRanding;
+    animation-duration: .4s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    transform-origin: left center;
+    &.red {
+      background-color: #ffddd2;
+      border-top: 1px solid #ffa98e;
+      border-bottom: 1px solid #ffa98e;
+    }
+    &.yellow {
+      background-color: #ffeec1;
+      border-top: 1px solid #f4c753;
+      border-bottom: 1px solid #f4c753;
+    }
+    &.green {
+      background-color: #c6f2d2;
+      border-top: 1px solid #5fc47c;
+      border-bottom: 1px solid #5fc47c;
+    }
+    &.blue {
+      background-color: #bdeaf4;
+      border-top: 1px solid #5cafc1;
+      border-bottom: 1px solid #5cafc1;
+    }
+    &.purple {
+      background-color: #e3d3fd;
+      border-top: 1px solid #a98dd7;
+      border-bottom: 1px solid #a98dd7;
+    }
+    h4 {
+      margin-right: 8px;
+      color: $primaryText;
+    }
+    p {font-size: 1.2rem}
+  }
+  .shec {
+    height: 160px;
+    width: 300px;
+    padding: 5px 15px;
+    font-size: 1.4em;
+    text-align: center;
+  }
+  .shec span {
+    display: block;
+    text-align: center;
+    padding: 23px;
+  }
+  .shec span.editShec {
+    border-bottom: 1px solid #cecece;
+  }
+}
+
+@keyframes todoRanding {
+  0% {
+      opacity: .5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
