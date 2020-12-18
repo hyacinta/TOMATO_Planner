@@ -1,0 +1,411 @@
+/* color */
+/* common */
+html {
+  font-size: 10px; }
+
+.a11yHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip: rect(0, 0);
+  clip-path: polygon(0, 0);
+  overflow: hidden; }
+
+::selection {
+  color: #FF551F;
+  background: #FFCCBC; }
+
+*:focus {
+  box-shadow: 0 0 3px rgba(255, 85, 31, 0.5); }
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.container {
+  min-height: 100vh;
+  background-color: #f6f6f6; }
+
+/* typography */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.6rem;
+  color: #707070;
+  letter-spacing: -0.025em;
+  line-height: 1.5; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #202020; }
+
+.h1, .h2, .h3 {
+  font-weight: 100; }
+
+.h4, .h5 {
+  font-weight: 400; }
+
+.h6, .subtitle1 {
+  font-weight: 500; }
+
+.h1 {
+  font-size: 8rem; }
+
+.h2 {
+  font-size: 6.4rem; }
+
+.h3 {
+  font-size: 5.2rem; }
+
+.h4 {
+  font-size: 4rem; }
+
+.h5 {
+  font-size: 3.2rem; }
+
+.h6 {
+  font-size: 2.4rem; }
+
+.subTitle1 {
+  font-size: 2rem; }
+
+.subTitle2 {
+  font-size: 1.6rem;
+  font-weight: 700; }
+
+.body1 {
+  font-size: 1.6rem; }
+
+.body2 {
+  font-size: 1.4rem; }
+
+.caption {
+  font-size: 1.2rem; }
+
+.overline {
+  font-size: 1rem; }
+
+/* button
+.btn {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn.small {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+}
+.btn.xLarge {
+  padding: 0.75em 1.5em;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.btn.outline.white {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 1)
+}
+
+
+/* etc 
+
+.btnEdit, .btnDelete {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+  padding-top: 32px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+}
+.btnDelete {background-image: url('../img/ico_delete.png');}
+.btnEdit {background-image: url('../img/ico_edit.png');}
+.btnClosed {
+  width: 24px;
+  height: 24px;
+  padding-top: 24px;
+  overflow: hidden;
+  background: url('../img/ico_closed.png') no-repeat center;
+  background-size: 24px 24px;
+}
+
+.progress {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background-color: #eee;
+  overflow: hidden;
+}
+.progressBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  max-width: 100%;
+  height: 8px;
+  border-radius: 0 4px 4px 0;
+  background-color: #FF551F;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+  animation-name: progressBarStart;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes progressBarStart {
+  0% {
+      opacity: 0;
+      transform: translateX(-100px);
+  }
+  10% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+#goal, #statistics, #schedule {padding-top: 64px;}
+#todos, #statistics, .schedule {background-color: #fff;}
+
+
+
+
+
+button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
+input[type="text"], input[type="date"], input[type="number"], textarea {
+  width: 100%;
+  border-width: 0 0 1px 0;
+  border-color: #cecece;
+  border-style: solid;
+  color: #707070;
+}
+input[type="text"], input[type="number"], textarea {padding: 12px 10px 11px;}
+input[type="date"] {padding: 7px 0 7px 10px;}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  padding: 12px 0 11px 10px;
+  border-width: 0 0 1px 0;
+  border-color: #cecece;
+  border-style: solid;
+  border-radius: 0;
+  background: url('../img/ico_arrow.png') no-repeat right center #fff;
+  background-size: 24px 24px;
+}
+select::-ms-expand {display: none;}
+input, a, button, select {outline: 0;}
+*/
+/* font setting
+h2 {font-size: 2rem;}
+*/
+/* title
+.titMenu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+  border-bottom: 2px solid #cecece;
+  background-color: #fff;
+  z-index: 100;
+}
+.titMenu .period {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 1.4rem;
+  color: #707070;
+}
+*/
+/* bottom nav
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+  z-index: 100;
+}
+.btnAddTodo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width:60px;
+  height: 40px;
+  padding-top: 40px;
+  margin: auto;
+  border-radius: 20px;
+  background: url('../img/ico_plus_white.png') no-repeat center;
+  background-size: 24px 24px;
+  background-color: #FF551F;
+  box-shadow: 0 0 12px 1px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+.navLink {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0 16px;
+}
+.navLink li:nth-child(2) {margin-right: 36px;}
+.navLink li:nth-child(3) {margin-left: 36px;}
+.navLink a {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 40px;
+  padding: 8px 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #202020;
+  text-align: center;
+}
+.navLink .active a::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin: 4px auto 0;
+  background-color: #FF551F;
+  border-radius: 4px;
+}
+
+.popup {
+  position: fixed;
+  display: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 320px;
+  padding: 24px;
+  margin: auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+  z-index: 200;
+}
+.popup h3 {
+  margin-bottom: 40px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.popup .btnClosed {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+}
+.popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+  border-top: 1px solid #FF551F;
+}
+.popup .btnCancel {
+  left: 0;
+  color: #FF551F;
+  border-bottom-left-radius: 16px;
+}
+.popup .btnRegister, .popup .btnRemove {
+  right: 0;
+  color: #fff;
+  background-color: #FF551F;
+  border-bottom-right-radius: 16px;
+}
+.popup.active {display: block;}
+.popup.active + .dimd {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 150;
+  overflow: hidden;
+}
+
+.addTodos.popup {height: 666px;}
+.addGoal.popup, .editGoal.popup {height: 362px;}
+.timer.popup {height: 250px;}
+
+.addInput, .editInput {
+  display: flex;
+  flex-wrap: wrap;
+}
+.addInput li, .editInput li {margin-bottom: 16px;}
+.category {width: 100%;}
+.addInput .categorySelect, .editInput .categorySelect {
+  width: 100%;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #707070;
+  border-bottom: 1px solid #cecece;
+}
+.todoInput {width: 232px;}
+.impSelect {position: relative;}
+.impSelect  label {
+  width: 40px;
+  height: 40px;
+  padding-left: 40px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: center;
+  background-image: url('../img/ico_imp_off.png');
+  border-bottom: 1px solid #cecece;
+}
+.impSelect input[type="checkbox"]:checked + label {
+  background-image: url('../img/ico_imp_on.png');
+}
+.impSelect input[type="checkbox"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+}
+.startDate, .startTime, .goalTime  {
+  width: 100%;
+  text-align: center;
+} 
+.startTime span {
+  padding-top: 10px;
+  padding-right: 5px;
+  border-bottom: 1px solid #cecece;
+}
+.contentInput {width: 100%;}
+.contentInput textarea {height: 80px;}
+.startTime, .goalTime {
+  display: flex;
+  flex-wrap: wrap;
+}
+.startDate label, .endDate label, .startTime label, .goalTime label {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding-left: 10px;
+  text-align: left;
+}
+.startTime input {width: 106px;}
+.startTime select {
+  width: 130px;
+  text-align: right;
+  color: #707070;
+}
+.goalTime select {
+  padding-left: 10px;
+  color: #707070;
+}
+*/

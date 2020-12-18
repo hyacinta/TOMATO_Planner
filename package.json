@@ -4,7 +4,8 @@
   "description": "TOMATO Study Planner 혼자 만들어보기 / 수정, 보완",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "start": "json-server --watch db.json"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "babel-loader": "^8.1.0",
+    "json-server": "^0.16.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },
