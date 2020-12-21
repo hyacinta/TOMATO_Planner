@@ -129,6 +129,149 @@ button {color: inherit;}
 .btnDelete {background-image: url('../img/ico_delete.png');}
 .btnEdit {background-image: url('../img/ico_edit.png');}
 
+[class^=btnBottom] {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+  color: $inverseText;
+  background-color: $main;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border:1px solid $main;
+}
+.btnBottom50L, .btnBottom50R {width: 50%;}
+.btnBottom50L {
+  left: 0;
+  color: $main;
+  border-bottom-right-radius: 0;
+  background-color: $bgStep0;
+}
+.btnBottom50R {
+  right: 0;
+  border-bottom-left-radius: 0;
+}
+.btnBottom100 {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+/*
+.btnClosed {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn.small {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+}
+.btn.xLarge {
+  padding: 0.75em 1.5em;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.btn.outline.white {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 1)
+}
+
+.btnClosed {
+  width: 24px;
+  height: 24px;
+  padding-top: 24px;
+  overflow: hidden;
+  background: url('../img/ico_closed.png') no-repeat center;
+  background-size: 24px 24px;
+}
+*/
+
+
+/* input */
+button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
+input[type="text"], input[type="date"], input[type="number"], textarea {
+  width: 100%;
+  border: 1px solid $border;
+  color: $secondaryText;
+  border-radius: 2px;
+}
+input[type="text"], input[type="number"], textarea {padding: 10px 10px 9px;}
+input[type="date"] {padding: 7px 0 7px 10px;}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  padding: 12px 0 11px 10px;
+  border: 1px solid $border;
+  border-radius: 0;
+  background: url('../img/ico_arrow.png') no-repeat 97% center $bgStep0;
+  background-size: 24px 24px;
+}
+select::-ms-expand {display: none;}
+input, a, button, select {outline: 0;}
+
+
+/* make select */
+.select {
+  position: relative;
+  color: $primaryText;
+  border: 1px solid $border;
+  border-radius: 2px;
+  .selectTitle, .selectList {
+    width: 100%;
+    margin: 0 auto;
+    padding: 11px 8px 10px;
+  }
+  .selectTitle {
+    padding-right: 28px;
+    text-align: left;
+    background-image: url("../img/ico_arrow.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 24px;
+  }
+  .selectList {
+    position: absolute;
+    display: none;
+    top: 8px;
+    left: 0;
+    right: 0;
+    background-color: $bgStep0;
+    border-radius: 2px;
+    border: 1px solid $border;
+    z-index: 100;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 8px;
+      .dDay {
+        padding-left: 8px;
+        font-size: 1.4rem;
+        color: $main;
+      }
+    }
+    li:last-child button {margin-bottom: 0;}
+    
+  }
+}
+
 
 /* progress */
 .progress {
@@ -254,41 +397,16 @@ nav {
   left: 0;
   right: 0;
   width: 320px;
-  padding: 24px;
+  padding: 24px 24px 58px;
   margin: auto;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, .3);
   z-index: 200;
-  h3 {
-    margin-bottom: 40px;
+  .popupTitle {
+    margin-bottom: 24px;
     font-size: 20px;
     font-weight: 400;
-  }
-  .btnClosed {
-    position: absolute;
-    top: 28px;
-    right: 24px;
-  }
-  .btnCancel, .btnRegister, .btnRemove {
-    position: absolute;
-    bottom: 0;
-    width: 50%;
-    padding: 16px;
-    font-size: 20px;
-    text-align: center;
-    border-top: 1px solid #FF551F;
-  }
-  .btnCancel {
-    left: 0;
-    color: #FF551F;
-    border-bottom-left-radius: 16px;
-  }
-  .btnRegister, .btnRemove {
-    right: 0;
-    color: #fff;
-    background-color: #FF551F;
-    border-bottom-right-radius: 16px;
   }
   &.active {display: block;}
   &.active + .dimd {
@@ -305,14 +423,12 @@ nav {
   /* timer popup */
   &.timer {
     height: 248px;
-    padding: 32px 24px 40px;
+    padding-top: 32px;
     .btnClosed {
       top: 16px;
       right: 16px;
     }
-    .todoTitSet {
-      margin-bottom: 16px;
-    }
+    .todoTitSet {margin-bottom: 16px;}
     .todoTit {
       display: inline-block;
       width: 100%;
@@ -326,7 +442,6 @@ nav {
       width: 100%;
       text-align: center;
     }
-    
     .simulationTime {
       width: 190px;
       margin: 0;
@@ -334,19 +449,12 @@ nav {
       text-align: center;
       color: #FF551F;
     }
-    .btnStopWatch {
-      margin: 0 12px 0 0;
-    }
-    .btnRegister {
-      width: 100%;
-      border-bottom-left-radius: 16px;
-    }
+    .btnStopWatch {margin: 0 12px 0 0;}
     .stopTimer {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
-      // background-color: red;
       .btnStopWatch {
         width: 48px;
         height: 48px;
@@ -360,214 +468,148 @@ nav {
       .btnStopWatch.play {background-image: url('../img/ico_start_main.png');}
       .btnStopWatch {background-image: url('../img/ico_stop_main.png');}
     }
-    
   }
-  &.addTodos {height: 666px;}
-  &.addGoal, &.editGoal {height: 362px;}
+  .addInput {
+    display: flex;
+    flex-wrap: wrap;
+    & > li {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 16px;
+      text-align: left;
+      &.todoInput {width: 232px;}
+      &.impSelect {
+        position: relative;
+        width: 40px;
+      }
+      &.contentInput {margin-bottom: 0;}
+    }
+  }
+  &.addTodos {
+    height: 591px;
+    .select {
+      width: 100%;
+      height: 40px;
+      color: $secondaryText;
+    }
+    .selectTitle {width: 97%;}
+    .selectList {
+      top: -1px;
+      width: calc(100% + 2px);
+      margin-left: -1px;
+    }
+    .todoInput input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    .impSelect label {
+      width: 39px;
+      height: 40px;
+      margin-left: -1px;
+      padding-left: 39px;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position: center;
+      background-image: url('../img/ico_imp_off.png');
+      border: 1px solid $border;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    .impSelect input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+    }
+    .impSelect input[type="checkbox"]:checked + label {
+      background-image: url('../img/ico_imp_on.png');
+    }
+    .startDate label, .endDate label, .startTime label, .goalTime label {
+      width: 72px;
+      flex-shrink: 0;
+      text-align: left;
+    }
+    #startTime {margin-right: 8px;}
+    .contentInput textarea {height: 120px;}
+  }
+  &.addGoal {
+    height: 362px;
+    .indexInput ul {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      li {
+        position: relative;
+        text-align: center;
+        &.red label {
+          background-color: $redLight;
+          border: 1px solid $redDeep;
+        }
+        &.yellow label {
+          background-color: $yellowLight;
+          border: 1px solid $yellowDeep;
+        }
+        &.green label {
+          background-color: $greenLight;
+          border: 1px solid $greenDeep;
+        }
+        &.blue label {
+          background-color: $blueLight;
+          border: 1px solid $blueDeep;
+        }
+        &.purple label {
+          background-color: $purpleLight;
+          border: 1px solid $purpleDeep;
+        }
+        &.yellow input[type="radio"]:checked + label {
+          background-color: $yellowDeep;
+        }
+        &.red input[type="radio"]:checked + label {
+          background-color: $redDeep;
+        }
+        &.green input[type="radio"]:checked + label {
+          background-color: $greenDeep;
+        }
+        &.blue input[type="radio"]:checked + label {
+          background-color: $blueDeep;
+        }
+        &.purple input[type="radio"]:checked + label {
+          background-color: $purpleDeep;
+        }
+        label {
+          display: block;
+          width: 40px;
+          height: 40px;
+          padding-top: 40px;
+          border-radius: 20px;
+          overflow: hidden;
+          background-color: $main;
+        }
+        input {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 40px;
+          height: 40px;
+          margin-left: -50%;
+          margin-top: -50%;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &.deleteConfirm, &.editConfirm {
+    height: 160px;
+    padding-top: 32px;
+    p {
+      font-size: 2rem;
+      color: $primaryText;
+      text-align: center;      
+    }
+  }
+  
 }
-
-
-/* button
-.btn {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-.btn.small {
-  padding: 0.5em 1em;
-  font-size: 1.4rem;
-}
-.btn.xLarge {
-  padding: 0.75em 1.5em;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-.btn.outline.white {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 1)
-}
-
-.btnClosed {
-  width: 24px;
-  height: 24px;
-  padding-top: 24px;
-  overflow: hidden;
-  background: url('../img/ico_closed.png') no-repeat center;
-  background-size: 24px 24px;
-}
-
-
-button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
-input[type="text"], input[type="date"], input[type="number"], textarea {
-  width: 100%;
-  border-width: 0 0 1px 0;
-  border-color: #cecece;
-  border-style: solid;
-  color: #707070;
-}
-input[type="text"], input[type="number"], textarea {padding: 12px 10px 11px;}
-input[type="date"] {padding: 7px 0 7px 10px;}
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 100%;
-  padding: 12px 0 11px 10px;
-  border-width: 0 0 1px 0;
-  border-color: #cecece;
-  border-style: solid;
-  border-radius: 0;
-  background: url('../img/ico_arrow.png') no-repeat right center #fff;
-  background-size: 24px 24px;
-}
-select::-ms-expand {display: none;}
-input, a, button, select {outline: 0;}
-*/
-
-/* font setting
-h2 {font-size: 2rem;}
-*/
-/* title
-.titMenu {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px;
-  border-bottom: 2px solid #cecece;
-  background-color: #fff;
-  z-index: 100;
-}
-.titMenu .period {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 1.4rem;
-  color: #707070;
-}
-*/
-/* popup
-
-
-
-
-
-
-.addInput, .editInput {
-  display: flex;
-  flex-wrap: wrap;
-}
-.addInput li, .editInput li {margin-bottom: 16px;}
-.category {width: 100%;}
-.addInput .categorySelect, .editInput .categorySelect {
-  width: 100%;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #707070;
-  border-bottom: 1px solid #cecece;
-}
-.todoInput {width: 232px;}
-.impSelect {position: relative;}
-.impSelect  label {
-  width: 40px;
-  height: 40px;
-  padding-left: 40px;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: 24px;
-  background-position: center;
-  background-image: url('../img/ico_imp_off.png');
-  border-bottom: 1px solid #cecece;
-}
-.impSelect input[type="checkbox"]:checked + label {
-  background-image: url('../img/ico_imp_on.png');
-}
-.impSelect input[type="checkbox"] {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  opacity: 0;
-}
-.startDate, .startTime, .goalTime  {
-  width: 100%;
-  text-align: center;
-} 
-.startTime span {
-  padding-top: 10px;
-  padding-right: 5px;
-  border-bottom: 1px solid #cecece;
-}
-.contentInput {width: 100%;}
-.contentInput textarea {height: 80px;}
-.startTime, .goalTime {
-  display: flex;
-  flex-wrap: wrap;
-}
-.startDate label, .endDate label, .startTime label, .goalTime label {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 12px;
-  padding-left: 10px;
-  text-align: left;
-}
-.startTime input {width: 106px;}
-.startTime select {
-  width: 130px;
-  text-align: right;
-  color: #707070;
-}
-.goalTime select {
-  padding-left: 10px;
-  color: #707070;
-}
-*/
-
-
-
-
-/* 
-button.btnImp {
-  width: 40px;
-  height: 40px;
-  padding-top: 40px;
-  overflow: hidden;
-  background-size: 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-.addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
-button.btnImp.impCheck + label {
-  background-image: url('../img/ico_imp_on.png')
-}
-.impSelect label.btnImpLabel {background-image: none;}
-
-
-*/
-
-
-
-
-/* title
-.titMenu {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px;
-  border-bottom: 2px solid #cecece;
-  background-color: #fff;
-  z-index: 100;
-}
-.titMenu .period {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 1.4rem;
-  color: #707070;
-}
-*/

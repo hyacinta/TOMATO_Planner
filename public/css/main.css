@@ -128,6 +128,150 @@ button {
 .btnEdit {
   background-image: url("../img/ico_edit.png"); }
 
+[class^=btnBottom] {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #FF551F;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 1px solid #FF551F; }
+
+.btnBottom50L, .btnBottom50R {
+  width: 50%; }
+
+.btnBottom50L {
+  left: 0;
+  color: #FF551F;
+  border-bottom-right-radius: 0;
+  background-color: #fff; }
+
+.btnBottom50R {
+  right: 0;
+  border-bottom-left-radius: 0; }
+
+.btnBottom100 {
+  left: 0;
+  right: 0;
+  width: 100%; }
+
+/*
+.btnClosed {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn.small {
+  padding: 0.5em 1em;
+  font-size: 1.4rem;
+}
+.btn.xLarge {
+  padding: 0.75em 1.5em;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.btn.outline.white {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 1)
+}
+
+.btnClosed {
+  width: 24px;
+  height: 24px;
+  padding-top: 24px;
+  overflow: hidden;
+  background: url('../img/ico_closed.png') no-repeat center;
+  background-size: 24px 24px;
+}
+*/
+/* input */
+button, input[type="checkbox"], select, a, .indexInput label, .indexInput input[type="radio"] {
+  cursor: pointer; }
+
+input[type="text"], input[type="date"], input[type="number"], textarea {
+  width: 100%;
+  border: 1px solid #cecece;
+  color: #707070;
+  border-radius: 2px; }
+
+input[type="text"], input[type="number"], textarea {
+  padding: 10px 10px 9px; }
+
+input[type="date"] {
+  padding: 7px 0 7px 10px; }
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+  padding: 12px 0 11px 10px;
+  border: 1px solid #cecece;
+  border-radius: 0;
+  background: url("../img/ico_arrow.png") no-repeat 97% center #fff;
+  background-size: 24px 24px; }
+
+select::-ms-expand {
+  display: none; }
+
+input, a, button, select {
+  outline: 0; }
+
+/* make select */
+.select {
+  position: relative;
+  color: #202020;
+  border: 1px solid #cecece;
+  border-radius: 2px; }
+  .select .selectTitle, .select .selectList {
+    width: 100%;
+    margin: 0 auto;
+    padding: 11px 8px 10px; }
+  .select .selectTitle {
+    padding-right: 28px;
+    text-align: left;
+    background-image: url("../img/ico_arrow.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 24px; }
+  .select .selectList {
+    position: absolute;
+    display: none;
+    top: 8px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid #cecece;
+    z-index: 100; }
+    .select .selectList button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 8px;
+      padding: 8px; }
+      .select .selectList button .dDay {
+        padding-left: 8px;
+        font-size: 1.4rem;
+        color: #FF551F; }
+    .select .selectList li:last-child button {
+      margin-bottom: 0; }
+
 /* progress */
 .progress {
   position: relative;
@@ -259,38 +403,17 @@ nav {
   left: 0;
   right: 0;
   width: 320px;
-  padding: 24px;
+  padding: 24px 24px 58px;
   margin: auto;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   z-index: 200;
   /* timer popup */ }
-  .popup h3 {
-    margin-bottom: 40px;
+  .popup .popupTitle {
+    margin-bottom: 24px;
     font-size: 20px;
     font-weight: 400; }
-  .popup .btnClosed {
-    position: absolute;
-    top: 28px;
-    right: 24px; }
-  .popup .btnCancel, .popup .btnRegister, .popup .btnRemove {
-    position: absolute;
-    bottom: 0;
-    width: 50%;
-    padding: 16px;
-    font-size: 20px;
-    text-align: center;
-    border-top: 1px solid #FF551F; }
-  .popup .btnCancel {
-    left: 0;
-    color: #FF551F;
-    border-bottom-left-radius: 16px; }
-  .popup .btnRegister, .popup .btnRemove {
-    right: 0;
-    color: #fff;
-    background-color: #FF551F;
-    border-bottom-right-radius: 16px; }
   .popup.active {
     display: block; }
   .popup.active + .dimd {
@@ -305,7 +428,7 @@ nav {
     overflow: hidden; }
   .popup.timer {
     height: 248px;
-    padding: 32px 24px 40px; }
+    padding-top: 32px; }
     .popup.timer .btnClosed {
       top: 16px;
       right: 16px; }
@@ -330,9 +453,6 @@ nav {
       color: #FF551F; }
     .popup.timer .btnStopWatch {
       margin: 0 12px 0 0; }
-    .popup.timer .btnRegister {
-      width: 100%;
-      border-bottom-left-radius: 16px; }
     .popup.timer .stopTimer {
       display: flex;
       align-items: center;
@@ -351,206 +471,126 @@ nav {
         background-image: url("../img/ico_start_main.png"); }
       .popup.timer .stopTimer .btnStopWatch {
         background-image: url("../img/ico_stop_main.png"); }
+  .popup .addInput {
+    display: flex;
+    flex-wrap: wrap; }
+    .popup .addInput > li {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 16px;
+      text-align: left; }
+      .popup .addInput > li.todoInput {
+        width: 232px; }
+      .popup .addInput > li.impSelect {
+        position: relative;
+        width: 40px; }
+      .popup .addInput > li.contentInput {
+        margin-bottom: 0; }
   .popup.addTodos {
-    height: 666px; }
-  .popup.addGoal, .popup.editGoal {
+    height: 591px; }
+    .popup.addTodos .select {
+      width: 100%;
+      height: 40px;
+      color: #707070; }
+    .popup.addTodos .selectTitle {
+      width: 97%; }
+    .popup.addTodos .selectList {
+      top: -1px;
+      width: calc(100% + 2px);
+      margin-left: -1px; }
+    .popup.addTodos .todoInput input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    .popup.addTodos .impSelect label {
+      width: 39px;
+      height: 40px;
+      margin-left: -1px;
+      padding-left: 39px;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-size: 24px;
+      background-position: center;
+      background-image: url("../img/ico_imp_off.png");
+      border: 1px solid #cecece;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px; }
+    .popup.addTodos .impSelect input[type="checkbox"] {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      opacity: 0; }
+    .popup.addTodos .impSelect input[type="checkbox"]:checked + label {
+      background-image: url("../img/ico_imp_on.png"); }
+    .popup.addTodos .startDate label, .popup.addTodos .endDate label, .popup.addTodos .startTime label, .popup.addTodos .goalTime label {
+      width: 72px;
+      flex-shrink: 0;
+      text-align: left; }
+    .popup.addTodos #startTime {
+      margin-right: 8px; }
+    .popup.addTodos .contentInput textarea {
+      height: 120px; }
+  .popup.addGoal {
     height: 362px; }
+    .popup.addGoal .indexInput ul {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+      .popup.addGoal .indexInput ul li {
+        position: relative;
+        text-align: center; }
+        .popup.addGoal .indexInput ul li.red label {
+          background-color: #FFDDD2;
+          border: 1px solid #FFA98E; }
+        .popup.addGoal .indexInput ul li.yellow label {
+          background-color: #FFEEC1;
+          border: 1px solid #F4C753; }
+        .popup.addGoal .indexInput ul li.green label {
+          background-color: #C6F2D2;
+          border: 1px solid #5FC37C; }
+        .popup.addGoal .indexInput ul li.blue label {
+          background-color: #BDEAF4;
+          border: 1px solid #5CAFC1; }
+        .popup.addGoal .indexInput ul li.purple label {
+          background-color: #E3D3FD;
+          border: 1px solid #A98DD7; }
+        .popup.addGoal .indexInput ul li.yellow input[type="radio"]:checked + label {
+          background-color: #F4C753; }
+        .popup.addGoal .indexInput ul li.red input[type="radio"]:checked + label {
+          background-color: #FFA98E; }
+        .popup.addGoal .indexInput ul li.green input[type="radio"]:checked + label {
+          background-color: #5FC37C; }
+        .popup.addGoal .indexInput ul li.blue input[type="radio"]:checked + label {
+          background-color: #5CAFC1; }
+        .popup.addGoal .indexInput ul li.purple input[type="radio"]:checked + label {
+          background-color: #A98DD7; }
+        .popup.addGoal .indexInput ul li label {
+          display: block;
+          width: 40px;
+          height: 40px;
+          padding-top: 40px;
+          border-radius: 20px;
+          overflow: hidden;
+          background-color: #FF551F; }
+        .popup.addGoal .indexInput ul li input {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 40px;
+          height: 40px;
+          margin-left: -50%;
+          margin-top: -50%;
+          opacity: 0; }
+  .popup.deleteConfirm, .popup.editConfirm {
+    height: 160px;
+    padding-top: 32px; }
+    .popup.deleteConfirm p, .popup.editConfirm p {
+      font-size: 2rem;
+      color: #202020;
+      text-align: center; }
 
-/* button
-.btn {
-  display: inline-flex;
-  align-items: center;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-.btn.small {
-  padding: 0.5em 1em;
-  font-size: 1.4rem;
-}
-.btn.xLarge {
-  padding: 0.75em 1.5em;
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-.btn.outline.white {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 1)
-}
-
-.btnClosed {
-  width: 24px;
-  height: 24px;
-  padding-top: 24px;
-  overflow: hidden;
-  background: url('../img/ico_closed.png') no-repeat center;
-  background-size: 24px 24px;
-}
-
-
-button, input[type="checkbox"], select, a, .indexInput label,.indexInput input[type="radio"] {cursor: pointer;}
-input[type="text"], input[type="date"], input[type="number"], textarea {
-  width: 100%;
-  border-width: 0 0 1px 0;
-  border-color: #cecece;
-  border-style: solid;
-  color: #707070;
-}
-input[type="text"], input[type="number"], textarea {padding: 12px 10px 11px;}
-input[type="date"] {padding: 7px 0 7px 10px;}
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  width: 100%;
-  padding: 12px 0 11px 10px;
-  border-width: 0 0 1px 0;
-  border-color: #cecece;
-  border-style: solid;
-  border-radius: 0;
-  background: url('../img/ico_arrow.png') no-repeat right center #fff;
-  background-size: 24px 24px;
-}
-select::-ms-expand {display: none;}
-input, a, button, select {outline: 0;}
-*/
-/* font setting
-h2 {font-size: 2rem;}
-*/
-/* title
-.titMenu {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px;
-  border-bottom: 2px solid #cecece;
-  background-color: #fff;
-  z-index: 100;
-}
-.titMenu .period {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 1.4rem;
-  color: #707070;
-}
-*/
-/* popup
-
-
-
-
-
-
-.addInput, .editInput {
-  display: flex;
-  flex-wrap: wrap;
-}
-.addInput li, .editInput li {margin-bottom: 16px;}
-.category {width: 100%;}
-.addInput .categorySelect, .editInput .categorySelect {
-  width: 100%;
-  font-size: 1.4rem;
-  font-weight: 400;
-  color: #707070;
-  border-bottom: 1px solid #cecece;
-}
-.todoInput {width: 232px;}
-.impSelect {position: relative;}
-.impSelect  label {
-  width: 40px;
-  height: 40px;
-  padding-left: 40px;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-size: 24px;
-  background-position: center;
-  background-image: url('../img/ico_imp_off.png');
-  border-bottom: 1px solid #cecece;
-}
-.impSelect input[type="checkbox"]:checked + label {
-  background-image: url('../img/ico_imp_on.png');
-}
-.impSelect input[type="checkbox"] {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  opacity: 0;
-}
-.startDate, .startTime, .goalTime  {
-  width: 100%;
-  text-align: center;
-} 
-.startTime span {
-  padding-top: 10px;
-  padding-right: 5px;
-  border-bottom: 1px solid #cecece;
-}
-.contentInput {width: 100%;}
-.contentInput textarea {height: 80px;}
-.startTime, .goalTime {
-  display: flex;
-  flex-wrap: wrap;
-}
-.startDate label, .endDate label, .startTime label, .goalTime label {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 12px;
-  padding-left: 10px;
-  text-align: left;
-}
-.startTime input {width: 106px;}
-.startTime select {
-  width: 130px;
-  text-align: right;
-  color: #707070;
-}
-.goalTime select {
-  padding-left: 10px;
-  color: #707070;
-}
-*/
-/* 
-button.btnImp {
-  width: 40px;
-  height: 40px;
-  padding-top: 40px;
-  overflow: hidden;
-  background-size: 24px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-.addTodos .impCheck, button.btnImp.impCheck {background-image: url('../img/ico_imp_on.png');}
-button.btnImp.impCheck + label {
-  background-image: url('../img/ico_imp_on.png')
-}
-.impSelect label.btnImpLabel {background-image: none;}
-
-
-*/
-/* title
-.titMenu {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 16px;
-  border-bottom: 2px solid #cecece;
-  background-color: #fff;
-  z-index: 100;
-}
-.titMenu .period {
-  display: inline-block;
-  margin-left: 4px;
-  font-size: 1.4rem;
-  color: #707070;
-}
-*/
 /* 할일 */
 main#today {
   padding-top: 0; }
@@ -583,42 +623,17 @@ main#today {
     main#today .information .todayGoal, main#today .information .todayPercent {
       margin: 0 4px; }
   main#today .category {
-    position: relative;
-    padding: 16px;
-    border-bottom: 2px solid #eee;
+    border-width: 0 0 2px 0;
+    font-size: 2rem;
+    color: #202020;
     text-align: center; }
-    main#today .category .categoryTitle, main#today .category .categoryList {
-      font-size: 2rem;
-      color: #202020; }
     main#today .category .categoryTitle {
-      padding-right: 32px;
-      background-image: url("../img/ico_arrow.png");
-      background-repeat: no-repeat;
-      background-position: center right;
-      background-size: 24px; }
+      width: 160px;
+      padding: 16px 28px 16px 16px; }
     main#today .category .categoryList {
-      position: absolute;
-      display: none;
-      top: 8px;
-      left: 0;
-      right: 0;
-      width: 90%;
-      margin: 0 auto;
-      padding: 8px;
-      background-color: #fff;
-      border-radius: 8px;
-      border: 1px solid #cecece; }
-      main#today .category .categoryList button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 8px 0;
-        padding: 8px; }
-    main#today .category .dDay {
-      padding-left: 4px;
-      font-size: 1.6rem;
-      color: #707070; }
+      width: 90%; }
+      main#today .category .categoryList .dDay {
+        font-size: 1.6rem; }
   main#today .todoList li {
     position: relative;
     display: flex;

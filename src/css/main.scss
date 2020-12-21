@@ -38,46 +38,17 @@ main#today {
     .todayGoal, .todayPercent {margin: 0 4px;}
   }
   .category {
-    position: relative;
-    padding: 16px;
-    border-bottom: 2px solid #eee;
+    border-width: 0 0 2px 0;
+    font-size: 2rem;
+    color: $primaryText;
     text-align: center;
-    .categoryTitle, .categoryList {
-      font-size: 2rem;
-      color: $primaryText;
-    }
     .categoryTitle {
-      padding-right: 32px;
-      background-image: url("../img/ico_arrow.png");
-      background-repeat: no-repeat;
-      background-position: center right;
-      background-size: 24px;
+      width: 160px;
+      padding: 16px 28px 16px 16px;
     }
     .categoryList {
-      position: absolute;
-      display: none;
-      top: 8px;
-      left: 0;
-      right: 0;
       width: 90%;
-      margin: 0 auto;
-      padding: 8px;
-      background-color: $bgStep0;
-      border-radius: 8px;
-      border: 1px solid $border;
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 8px 0;
-        padding: 8px;
-      }
-    }
-    .dDay {
-      padding-left: 4px;
-      font-size: 1.6rem;
-      color: $secondaryText;
+      .dDay {font-size: 1.6rem;}
     }
   }
   .todoList li {
