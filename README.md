@@ -24,8 +24,12 @@ TOMATO 플래너는 목표와 목표에 따른 할 일을 작성할수 있으며
 
 - Git
 - HTML
-- CSS
-- JavaScript
+- CSS(scss)
+- JavaScript (Vanilla JS)
 - Babel
 - Webpack
 - JSON Server
+
+
+*해당 프로젝트는 애초에 패스트캠퍼스 프론트엔드 15기 Javascript 미니프로젝트 도중 팀 프로젝트로 기획되었으며, 팀 멤버(이하은)과 본인이 공동 디자인하였습니다.*
+*단, 지금 이 프로젝트는 개인 프로젝트로 진행하기 위하여 HTML, CSS는 기존의 프로젝트에서 수정, 보완하여 재진행하였으며 Javascript는 전부 단독 진행될 예정입니다. (기존 공동 프로젝트에서의 HTML, CSS도 본인이 진행하였으나 Javascript 부분을 나눠서 진행하였습니다.)*
